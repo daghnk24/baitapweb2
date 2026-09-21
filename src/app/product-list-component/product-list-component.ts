@@ -1,0 +1,27 @@
+import { Component } from '@angular/core';
+
+// Cập nhật interface Product để bao gồm cả thuộc tính image
+export interface Product {
+  id: number;
+  name: string;
+  price: number;
+  image: string; // Thêm dòng này để tránh lỗi TypeScript
+}
+
+@Component({
+  selector: 'app-product-list-component',
+  standalone: false,
+  styleUrl: './product-list-component.css',
+  templateUrl: './product-list-component.html',
+})
+export class ProductListComponent {
+  products: Product[] = [
+    { id: 1, name: "Iphone 18", price: 3000, image: "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-18-pro-01_5.jpg" },
+    { id: 2, name: "Iphone 14 Pro", price: 4000, image: "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-14-pro-01_5.jpg" },
+    // Đã thêm dấu " ở cuối chuỗi image của id: 3
+    { id: 3, name: "Iphone 14 Pro Max", price: 5000, image: "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:0/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-16-pro_1.png" },
+    { id: 4, name: "Iphone 15", price: 6000, image: "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-duo-01.jpg" },
+    { id: 5, name: "Iphone 15 Pro", price: 7000, image: "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-17-pro-cam_4.jpg" },
+    { id: 6, name: "Iphone 15 Pro Max", price: 8000, image: "https://cdn2.cellphones.com.vn/insecure/rs:fill:358:358/q:90/plain/https://cellphones.com.vn/media/catalog/product/i/p/iphone-15-plus-256gb_3.png" }
+  ];
+}

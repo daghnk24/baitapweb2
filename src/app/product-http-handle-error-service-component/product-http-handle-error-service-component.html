@@ -1,0 +1,33 @@
+{{ errMessage() }}
+<table border="1">
+    <thead>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Email</td>
+            <td>Age</td>
+            <td>#</td>
+        </tr>
+    </thead>
+    <tbody>
+        @for (customerGroup of customerGroups(); track customerGroup.CustomerTypeId) {
+            <tr>
+                <td colspan="5">{{ customerGroup.CustomerTypeId }} - {{ customerGroup.CustomterTypeName }}</td>
+            </tr>
+            @for (customer of customerGroup.Customers; track customer.Id) {
+            <tr>
+                <td>{{ customer.Id }}</td>
+                <td>{{ customer.Name }}</td>
+                <td>{{ customer.Email }}</td>
+                <td>{{ customer.Age }}</td>
+                <td><img [src]="customer.Image" [alt]="customer.Name" width="200" height="175"></td>
+            </tr>
+            }
+        }
+        @empty {
+            <tr>
+                <td colspan="5">No customers available.</td>
+            </tr>
+        }
+    </tbody>
+</table>
